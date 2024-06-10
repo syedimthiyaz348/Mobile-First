@@ -1,0 +1,35 @@
+table, th, td {
+    border:1px solid black;
+  }
+
+table {
+    width: 100%;
+}
+.character-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.next-previous{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.next-previous-buttons{
+    height: 40px;
+    width: 100px;
+    background-color: #24a0ed;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius:10px ;
+}
+.main-heading{
+    text-align: center;
+}
+.list-container{
+    padding: 20px;
+}

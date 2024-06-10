@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
+import { useEffect } from 'react';
+import LoginPage from './components/LoginPage';
+import ResetPassword from './components/ResetPassword';
+import SignUp from './components/SignUp';
+import CharacterList from './components/CharacterList';
+import CharacterDetails from './components/CharacterDetails';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <Switch>
+        <Route exact path='/' component={CharacterList}/>
+        <Route exact path='/login' component={LoginPage}/>
+        <Route exact path='/resetPassword' component={ResetPassword}/>
+        <Route exact path='/signUp' component={SignUp}/>
+        <Route exact path='/characterDetails' component={CharacterDetails}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
