@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import './index.css'
 import Character from '../Character'
+import {Link} from 'react-router-dom'
 
 class CharacterList extends Component {
     state = {resultArray:[], apiUrl :"https://swapi.dev/api/people", nextPage: "", previousPage: '' }
@@ -64,6 +65,7 @@ class CharacterList extends Component {
             <button className='next-previous-buttons' onClick={this.onChangingPage}>Next</button>
             </div>
             {this.modalRendering()}
+            <Link to="/login"><button>Logout</button></Link>
             </div>
         )
     }
