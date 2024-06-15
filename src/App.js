@@ -6,12 +6,13 @@ import ResetPassword from './components/ResetPassword';
 import SignUp from './components/SignUp';
 import CharacterList from './components/CharacterList';
 import CharacterDetails from './components/CharacterDetails';
+import ProtectedRoute from './components/ProtectedRoute'
 
 const App = () => {
   return (
     <BrowserRouter >
       <Switch>
-        <Route exact path='/' component={CharacterList}/>
+        <ProtectedRoute exact path='/' component={CharacterList}/>
         <Route exact path='/login' component={LoginPage}/>
         <Route exact path='/resetPassword' component={ResetPassword}/>
         <Route exact path='/signUp' component={SignUp}/>

@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {useState} from 'react'
 import {v4 as uuidv4} from 'uuid'
 
@@ -5,6 +6,7 @@ const SignUp = () => {
     const [username, setuserName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    //const [userDetails, setUserDetails] = useState([])
     const id = uuidv4()
     const onEnteringUsername = event => {
         setuserName(event.target.value)
@@ -19,28 +21,30 @@ const SignUp = () => {
     }
 
     const onSubmiting = async event => {
-        event.preventDefault()
-        const userDetails = {id,username, password, email}
-        console.log(userDetails)
-        const url = "http://localhost:3000/users/"
+        event.preventDefault();
+        const userDetails = {username,password,email}
+        const url = "http://localhost:3000/signup"
         const options = {
             method : "POST",
-            body : JSON.stringify(userDetails)
+            body : JSON.stringify(userDetails),
+            headers : {
+                'Content-Type': 'application/json'
+            },
         }
         const response = await fetch(url, options)
-        console.log(response)
+        console.log(await response.json())
     }
 
     return(
         <div>
-            <form>
+            <form onSubmit={onSubmiting}>
                 <label>USERNAME</label>
-                <input onChange = {onEnteringUsername} type='text'/>
+                <input value={username} onChange = {onEnteringUsername} type='text'/>
                 <label>Email</label>
-                <input onChange = {onEnteringEmail} type='text'/>
+                <input value={email} onChange = {onEnteringEmail} type='text'/>
                 <label>PASSWORD</label>
-                <input onChange = {onEnteringPassword} type='password'/>
-                <button onClick={onSubmiting}>Submit</button>
+                <input value={password} onChange = {onEnteringPassword} type='password'/>
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )
