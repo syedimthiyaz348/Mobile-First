@@ -26,7 +26,7 @@ const LoginPage = props => {
     const onLoggingIn = async event => {
         event.preventDefault();
         const enteredUserDetails = {username, password}
-        const loginUrl = 'http://localhost:3000/login';
+        const loginUrl = 'https://mobilefirst-backend.vercel.app/login';
         const options = {
             method:"POST",
             body: JSON.stringify(enteredUserDetails),
